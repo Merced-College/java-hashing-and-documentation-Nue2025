@@ -1,9 +1,26 @@
+/**
+ * SongRecord.java
+ * @author Nue Lopez
+ * @since 4/15/2025
+ * CPSC-39
+ * Hasing and Documentation: This file is to write documentation for a program that
+ * uses a HashMap to store song records. It includes methods to load songs from a CSV file,
+ * retrieve songs by ID, and display a GUI for searching songs. The program also includes
+ * a main method to demonstrate its functionality if you aren't using the GUI.
+ * In this file, it is recording the songs and putting them together.
+ */
+
 //package hashingAndDocumentation;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class SongRecord {
+/**
+ * This class represents a song record with all information in the CSV file. 
+ * It contains instance variables, constructors (listed later), getters, setters,
+ * toString methods, comparison methods using .compareTo, and a hashCode return method.
+ */
+ public class SongRecord {
     // Instance variables
     private double valence;
     private int year;
@@ -25,6 +42,13 @@ public class SongRecord {
     private double speechiness;
     private double tempo;
 
+    /**
+     * Default constructor with no parameters.
+     * It lists all the instance variables and sets them to default values, 0 for integers and
+     * 0.0 for doubles. 
+     * Artists are set to Unknown Artist.
+     * The Song Name is set to Unknown Title.
+     */
     // Default constructor
     public SongRecord() {
         this.valence = 0.0;
@@ -48,7 +72,12 @@ public class SongRecord {
         this.tempo = 0.0;
     }
 
-    // Constructor that takes a CSV string and parses it
+    /**
+     * Constructor that takes a CSV string and parses it.
+     * @param data The CSV string containing the String class song record data. It is stored in each line and must be separated
+     * data will be helpful in splitting the values.
+     * By using the String class, it will be able to split the values and store them in the instance variables.
+     */
     public SongRecord(String data) {
         String[] fields = data.split(","); // Assuming comma-separated values
         
@@ -80,7 +109,29 @@ public class SongRecord {
         
     }
 
-    // Getters and setters for each field
+    /**
+     * Getters and setters for each field.
+     * @return valence will return the valence of the song.
+     * @return year will return the year of the song.
+     * @return acousticness will return the acousticness of the song.
+     * @return artists will return the artists of the song.
+     * @return danceability will return the danceability of the song.
+     * @return durationMs will return the duration of the song in milliseconds.
+     * @return energy will return the energy of the song.  
+     * @return explicit will return the explicit value of the song.
+     * @return id will return the id of the song.
+     * @return instrumentalness will return the instrumentalness of the song.
+     * @return key will return the key of the song.
+     * @return liveness will return the liveness of the song.
+     * @return loudness will return the loudness of the song.
+     * @return mode will return the mode of the song.
+     * @return name will return the name of the song.
+     * @return popularity will return the popularity of the song.
+     * @return releaseDate will return the release date of the song.
+     * @return speechiness will return the speechiness of the song.
+     * @return tempo will return the tempo of the song.
+     * All the getters and setters will return the values of the instance variables.
+     */
     public double getValence() { return valence; }
     public void setValence(double valence) { this.valence = valence; }
 
@@ -138,7 +189,11 @@ public class SongRecord {
     public double getTempo() { return tempo; }
     public void setTempo(double tempo) { this.tempo = tempo; }
 
-    // toString method
+
+    /**
+     * toString method to return a string representation of the object.
+     * @return Returns a String method of each file from all the instance variables.
+     */
     @Override
     public String toString() {
         return "SongRecord{" +
@@ -164,7 +219,11 @@ public class SongRecord {
                 '}';
     }
 
-    // equals method
+    /**
+     * equals method to compare two SongRecord objects.
+     * @param o The object to compare with.
+     * @return Returns true if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -191,6 +250,11 @@ public class SongRecord {
                 Double.compare(that.tempo, tempo) == 0;
     }
 
+    /**
+     * hashCode() method is to return the hash code of the object.
+     * It is used to generate a unique hash code for the object based on its fields.
+     * @return Returns the hash code of the object as an integer.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(valence, year, acousticness, artists, danceability, durationMs, energy, explicit, id,
